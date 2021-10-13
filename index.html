@@ -7,65 +7,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
     <script type="module" src="./js/main.js"></script>
-    <title>CRUD Example</title>
+    <title>Amendola ToDo</title>
 </head>
 
 <body>
-    <div class="content">
+    <div class="content ">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-4" href="#">
+                    <img src="./images/LogoA.png" alt="" width="30" height="24" class="d-inline-block align-text-top"> Amendola ToDo
+                </a>
+            </div>
+        </nav>
         <div class="container">
-            <h2 class="my-3">Chamado HelpDesk</h2>
-            <button id="newCall" type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Abrir Chamado
+
+            <h2></h2>
+            <button id="newCall" type="button" class="btn btn-warning my-3 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="d-flex flex-row">
+                    <i d class="bi bi-plus"></i> 
+                    <h6 class="btnLabel">Adicionar ToDo</h6>
+                </div>
+                
             </button>
-            <table id="table" class="table table-dark table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Setor</th>
-                        <th scope="col">Data Chamado</th>
-                        <th scope="col">Hora</th>
-                        <th scope="col">Problema</th>
-                        <th scope="col">Opções</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div id="tableContent">
+                <table id="table" class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Assunto</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Situação</th>
+                            <th scope="col">Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     </div>
-    <!-- Modal  -->
+    <div class="card-footer text-muted">
+        <div class="row">
+            <p class="col mb-0"><small>*As informações estão salvas no navegador, caso os dados de navegação forem apagados, as
+                informações do ToDo serão perdidas.</small></p>
+            <p class="col col-md-4 text-end mb-0 ">Desenvolvido por <a href="https://github.com/FtiagoF" target="blank">Tiago Farias</a></p>
+        </div>
+
+    </div>
+    <!-- Modal Criar -->
     <div class="modal fade" data-index="new" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Abertura de Chamado</h5>
-                    <button id="x" type="button" class="btn-close close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Adicionar ToDo</h5>
+                    <button id="x" type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="form">
                         <div class="col-md-10 offset-1">
                             <div class="input-group input-group-sm mb-3">
                                 <span class="input-group-text " id="inputGroup-sizing-sm">Nome</span>
-                                <input data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-sm" id="name" required>
+                                <input data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="name" required>
                             </div>
-                            <select class="form-select form-select-sm mb-3 inputs" aria-label=".form-select-sm example"
-                                id="setor" required>
-                                <option value="" selected>Setor</option>
-                                <option value="1">Informática</option>
-                                <option value="2">RH</option>
-                                <option value="3">Posto</option>
-                            </select>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text " id="inputGroup-sizing-sm">Cidade</span>
+                                <input data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="cidade" required>
+                            </div>
                             <div class="input-group">
                                 <span class="input-group-text">Problema</span>
-                                <textarea id="problema" required class="form-control inputs"
-                                    aria-label="With textarea"></textarea>
+                                <textarea id="problema" required class="form-control inputs" aria-label="With textarea"></textarea>
                             </div>
                         </div>
                     </form>
@@ -77,13 +95,48 @@
             </div>
         </div>
     </div>
-    
+    <!-- Modal Delete -->
+    <div class="modal fade" data-index="new" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                    <button id="x" type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja excluir esse ToDo? <strong id="viewIndex"></strong></p>
+                    <form id="form">
+                        <div class="col-md-10 offset-1">
+                            <div class="input-group input-group-sm mb-3">
+                                <input hidden data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="index" disabled>
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text " id="inputGroup-sizing-sm">Nome</span>
+                                <input data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="nameDel" disabled>
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text " id="inputGroup-sizing-sm">Cidade</span>
+                                <input data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="cidadeDel" disabled>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">Problema</span>
+                                <textarea id="problemaDel" class="form-control inputs" aria-label="With textarea" disabled></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="delete" type="button" class="btn btn-danger" data-bs-dismiss="modal">Deletar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
