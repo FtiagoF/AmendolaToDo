@@ -57,8 +57,7 @@ document.getElementById('delete').addEventListener('click', commitDelete);
 const checkUncheck = (index) => {
     let call = readCall()[index];
     call.check *= (-1);
-    updateCall(index, call)
-    console.log(call)
+    updateCall(index, call);
     updateTable();
 }
 
@@ -79,10 +78,13 @@ const editDelete = (event) => {
 
 const createRow = (call, index) => {
     const check = () => {
-        if(call.check !== -1)
+        if(call.check === -1) {
             return 'check-false';
-        else
+        }
+        else{
+            
             return 'check-true';
+        }
     }
 
     const newRow = document.createElement('tr');
@@ -125,6 +127,8 @@ const fillInputEdit = (call) => {
 }
 
 const fillInputDelete = (call) => {
+    let viewIndex = parseInt(call.index) + 1
+    document.getElementById('viewIndex').innerText = viewIndex;
     document.getElementById('nameDel').value = call.nome;
     document.getElementById('cidadeDel').value = call.cidade;
     document.getElementById('problemaDel').value = call.problema;
