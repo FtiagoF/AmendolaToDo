@@ -45,6 +45,23 @@ const btnDeleteCall = (index) => {
     let call = readCall()[index];
     call.index = index;
     fillInputDelete(call);
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não será capaz de reverter isso.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
 }
 
 const commitDelete = () => {
@@ -53,6 +70,8 @@ const commitDelete = () => {
     updateTable();
 }
 document.getElementById('delete').addEventListener('click', commitDelete);
+document.getElementById('closeDelete').addEventListener('click', clearForm);
+document.getElementById('xDelete').addEventListener('click', clearForm);
 
 const checkUncheck = (index) => {
     let call = readCall()[index];
@@ -135,3 +154,8 @@ const fillInputDelete = (call) => {
     document.getElementById('index').value = call.index;
     document.getElementById('nameDel').dataset.index = call.index
 }
+
+const newCall = () => {
+    document.getElementById('name').dataset.index = 'new';
+}
+document.getElementById('addTodo').addEventListener('click', newCall);
