@@ -8,6 +8,16 @@ html {
     scrollbar-width: thin;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 30px 10px 30px;
+    background: #ecf0f1;
+    color: #6c757d;
+}
+
 body {
     height: 93vh;
 }
@@ -68,6 +78,7 @@ th {
 
 #tableContent {
     overflow-y: scroll;
+    overflow-x: scroll;
     background-color: #2C3034;
     border-radius: 10px;
 }

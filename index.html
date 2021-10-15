@@ -54,7 +54,7 @@
         </div>
 
     </div>
-    <div class="card-footer text-muted">
+    <div class="footer text-muted">
         <div class="row">
             <p class="col mb-0"><small>*As informações estão salvas no navegador, caso os dados de navegação forem apagados, as
                 informações do ToDo serão perdidas.</small></p>
@@ -95,45 +95,9 @@
             </div>
         </div>
     </div>
-    <!-- Modal Delete -->
-    <div class="modal fade" data-index="new" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-                    <button id="xDelete" type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Tem certeza que deseja excluir esse ToDo? <strong id="viewIndex"></strong></p>
-                    <form id="form">
-                        <div class="col-md-10 offset-1">
-                            <div class="input-group input-group-sm mb-3">
-                                <input hidden data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="index" disabled>
-                            </div>
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text " id="inputGroup-sizing-sm">Nome</span>
-                                <input data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="nameDel" disabled>
-                            </div>
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text " id="inputGroup-sizing-sm">Cidade</span>
-                                <input data-index="new" type="text" class="form-control inputs" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="cidadeDel" disabled>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-text">Problema</span>
-                                <textarea id="problemaDel" class="form-control inputs" aria-label="With textarea" disabled></textarea>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button id="closeDelete" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button id="delete" type="button" class="btn btn-danger" data-bs-dismiss="modal">Deletar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 
