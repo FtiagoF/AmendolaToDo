@@ -16,6 +16,12 @@ html {
     padding: 10px 30px 10px 30px;
     background: #ecf0f1;
     color: #6c757d;
+    overflow-y: scroll;
+}
+
+.footer::-webkit-scrollbar {
+    width: 10px;
+    display: none;
 }
 
 body {
@@ -73,6 +79,9 @@ th {
 @media (max-width: 1100px) {
     #tableContent {
         height: 420px;
+    }
+    .footer {
+        height: 100px;
     }
 }
 
